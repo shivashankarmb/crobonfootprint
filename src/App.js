@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Registration from "./Components/Registration";
+import Login from "./Components/Login";
+import Home from "./Components/Home";
+import Dashboard from "./Components/Dashboard";
+import Profile from "./Components/Profile";
+
+
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        {/* Toast Notifications Container */}
+        <ToastContainer position="top-center" autoClose={2000} />
+
+        {/* Application Routes */}
+        <Routes>
+      
+          <Route path="/" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+         
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
